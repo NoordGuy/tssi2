@@ -54,6 +54,10 @@ Only the time spent in libtssi2 or `read`is measured. Disc to memory transfers a
 
 All tests were conducted on a HP Spectre x360 with Intel Core i7-7500U. The source code is available under [examples/benchmark](./examples/benchmark/).
 
+# Documentation
+
+Download or clone the repository to access the HTML documentation located under [docs](./docs).
+
 # Quick start
 We want to detect the transmission time of a Transport Stream. Let us suppose you already have included the stream and vector files from C++ and introduced the namespace `std` (a source file is available, see examples). 
 
