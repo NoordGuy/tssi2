@@ -1,6 +1,6 @@
-# libtssi2
+# tssi2 (Transport Stream Service Information v2)
 
-libtssi2 is a header-only library for parsing MPEG-2 and DVB Transport Streams in the domain of multimedia and data processing applications. 
+tssi2 is a header-only library for parsing MPEG-2 and DVB Transport Streams in the domain of multimedia processing applications. 
 
 The entire implementation is provided inline in the headers under the include directory. A reference documentation is stored under docs. A modern C++ compiler (C++ 14 / C++ 17) is necessary.
 
@@ -17,7 +17,6 @@ The GNU General Public License v3 applies to this project.
 If you need another (e.g. commercial) license, [contact me](https://goforcode.com).
 
 # Features
-
   - Fast
     See [Benchmark](#markdown-header-benchmark)
   - Modern and leak-free [by default](https://www.youtube.com/watch?v=JfmTagWcqoE)
