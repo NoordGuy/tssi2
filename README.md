@@ -52,7 +52,7 @@ Only the time spent in libtssi2 or `read`is measured. Disc to memory transfers a
 
 ![libtssi benchmark](./examples/benchmark/benchmark.png)
 
-All tests were conducted on a HP Spectre x360 with Intel Core i7-7500U. The source code is available under [examples/benchmark](./examples/benchmark/README.md).
+All tests were conducted on a HP Spectre x360 with Intel Core i7-7500U. The source code is available under [examples/benchmark](./examples/benchmark/).
 
 # Quick start
 We want to detect the transmission time of a Transport Stream. Let us suppose you already have included the stream and vector files from C++ and introduced the namespace `std` (a source file is available, see examples). 
@@ -95,7 +95,7 @@ for (auto& v : psi.psi_heap())
 ```
 Direct access to the section's data is available through `v.second.psi_data()`.
 ```c++
-		auto data = v.second.psi_data();
+        auto data = v.second.psi_data();
 ```
 The functions to analyze sections and descriptors are organized in namespaces. Utilize the `using` statement if appropriate.
 ```c++
@@ -114,13 +114,13 @@ The program should result in an output like:
 
 Advertise by utilize:
 
- - [Data](./examples/data/README.md): 272MB Transport Stream sample (approx. 1min DVB satellite capture), test file for the following examples.
- - [Minimal](./examples/minimal/README.md): The quick start guide's source code.
- - [Benchmark](./examples/benchmark/README.md): Basic chronometry.
- - [PSI Data](./examples/psidata/README.md): Parsing of Program-specific information to HTML.
- - [Audio/Video Parser](./examples/avparser/README.md): Extraction of elementary stream (audio and video in this case) to disc.
- - [Multi-threading](./examples/multithreading/README.md): A demo on reading from `PSIHeap` while `TSParser` tries to fill it with new information.
- - [Video player](./examples/videoplayer/README.md): A video player using ffmpeg and SDL2.
+ - [Data](./examples/data/): 272MB Transport Stream sample (approx. 1min DVB satellite capture), test file for the following examples.
+ - [Minimal](./examples/minimal/): The quick start guide's source code.
+ - [Benchmark](./examples/benchmark/): Basic chronometry.
+ - [PSI Data](./examples/psidata/): Parsing of Program-specific information to HTML.
+ - [Audio/Video Parser](./examples/avparser/): Extraction of elementary stream (audio and video in this case) to disc.
+ - [Multi-threading](./examples/multithreading/): A demo on reading from `PSIHeap` while `TSParser` tries to fill it with new information.
+ - [Video player](./examples/videoplayer/): A video player using ffmpeg and SDL2.
 
 # Building the docs
 
