@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./robodoc.css" type="text/css" />
+<title>./include/specifications.hpp</title>
+<!-- Source: ./include/specifications.hpp -->
+<!-- Generated with ROBODoc Version 4.99.36 (Mar 13 2008) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc"></a>
+</div> <!-- logo -->
+<div id="navigation">
+<a class="menuitem" href="./robo_modules.html#robo_top_of_doc">Modules</a></div> <!-- navigation -->
+<div id="content">
+<hr />
+<a name="tssi3a3aiso1381812fadaptation5ffield"></a>
+<a name="robo89"></a><h2>tssi::iso138181/adaptation_field [ Modules ]</h2>
+
+<p class="item_name">NAME</p>
+<pre>    <strong>adaptation_field</strong> -- Optional field included after <a href="./specifications_hpptssi3A3Aiso1381812Ftransport5Fpacket.html#robo122">transport_packet</a> if
+    adaptation_field_control is equal to 0x2 or 0x3.
+</pre>
+<p class="item_name">TODO</p>
+<pre>    Implement missing members
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">        <span class="keyword">namespace</span> <strong>adaptation_field</strong> <span class="sign">{</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                adaptation_field_length<span class="sign">)</span><span class="sign">;</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="keyword">if</span> <span class="sign">(</span>adaptation_field_length <span class="sign">&gt;</span> 0<span class="sign">)</span> <span class="sign">{</span> 
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 7<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                discontinuity_indicator<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 6<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                random_access_indicator<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 5<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                elementary_stream_priority_indicator<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                PCR_flag<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 3<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                OPCR_flag<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 2<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                splicing_point_flag<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 1<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                transport_private_data_flag<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>1<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                adaptation_field_extension_flag<span class="sign">)</span><span class="sign">;</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="keyword">if</span> <span class="sign">(</span>PCR_flag <span class="sign">=</span><span class="sign">=</span> 1<span class="sign">)</span> <span class="sign">{</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR64.html#robo169">R64</a><span class="sign">&lt;</span>2<span class="sign">&gt;</span><span class="sign">,</span> 0xffffffff80000000<span class="sign">,</span> 31<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                program_clock_reference_base<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>6<span class="sign">&gt;</span><span class="sign">,</span> 0x1ff<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                program_clock_reference_extension<span class="sign">)</span><span class="sign">;</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
+        <span class="sign">}</span>
+</pre>
+
+</div> <!-- content -->
+<div id="footer">
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Thu Jun 15 2017 16:22:05
+</p>
+</div> <!-- footer -->
+</body>
+</html>

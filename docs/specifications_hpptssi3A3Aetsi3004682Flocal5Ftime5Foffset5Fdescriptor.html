@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./robodoc.css" type="text/css" />
+<title>./include/specifications.hpp</title>
+<!-- Source: ./include/specifications.hpp -->
+<!-- Generated with ROBODoc Version 4.99.36 (Mar 13 2008) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc"></a>
+</div> <!-- logo -->
+<div id="navigation">
+<a class="menuitem" href="./robo_modules.html#robo_top_of_doc">Modules</a></div> <!-- navigation -->
+<div id="content">
+<hr />
+<a name="tssi3a3aetsi3004682flocal5ftime5foffset5fdescriptor"></a>
+<a name="robo38"></a><h2>tssi::etsi300468/local_time_offset_descriptor [ Modules ]</h2>
+
+<p class="item_name">NAME</p>
+<pre>    <strong>local_time_offset_descriptor</strong> -- "The <strong>local_time_offset_descriptor</strong> may be used in
+    the [<a href="./specifications_hpptssi3A3Aetsi3004682Ftime5Foffset5Fsection.html#robo81">time_offset_section</a>] to describe country specific dynamic changes of the
+    local time offset relative to UTC" [ETSI EN 300 468 V1.13.1].
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">        <span class="keyword">namespace</span> <strong>local_time_offset_descriptor</strong> <span class="sign">{</span>
+            <span class="keyword">using</span> <span class="keyword">namespace</span> iso138181<span class="sign">:</span><span class="sign">:</span><a href="./specifications_hpptssi3A3Aiso1381812Fdescriptor.html#robo95">descriptor</a><span class="sign">;</span>
+            <span class="keyword">const</span> uint_fast8_t tag <span class="sign">=</span> 0x58<span class="sign">;</span>
+
+            <span class="keyword">inline</span> size_t N<span class="sign">(</span>gsl<span class="sign">:</span><span class="sign">:</span>span<span class="sign">&lt;</span><span class="keyword">const</span> <span class="keyword">char</span><span class="sign">&gt;</span> data<span class="sign">)</span> <span class="keyword">noexcept</span> <span class="sign">{</span> <span class="keyword">return</span> descriptor_length<span class="sign">(</span>data<span class="sign">)</span> <span class="sign">/</span> 13<span class="sign">;</span> <span class="sign">}</span>
+
+            <span class="sign">/</span><span class="sign">/</span> <span class="keyword">for</span> <span class="sign">(</span>i <span class="sign">=</span> 0<span class="sign">;</span> i <span class="sign">&lt;</span> N<span class="sign">;</span> i<span class="sign">+</span><span class="sign">+</span><span class="sign">)</span> <span class="sign">{</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR24.html#robo166">R24</a><span class="sign">&lt;</span>2<span class="sign">,</span> 13<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                country_code<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>2 <span class="sign">+</span> 3<span class="sign">,</span> 13<span class="sign">&gt;</span><span class="sign">,</span> 0xfc<span class="sign">,</span> 2<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                country_region_id<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>2 <span class="sign">+</span> 3<span class="sign">,</span> 0<span class="sign">,</span> 13<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                local_time_offset_polarity<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FBCD.html#robo153">BCD</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>2 <span class="sign">+</span> 4<span class="sign">,</span> 13<span class="sign">&gt;</span><span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                local_time_offset<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FTIME.html#robo173">TIME</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR40.html#robo168">R40</a><span class="sign">&lt;</span>2 <span class="sign">+</span> 6<span class="sign">,</span> 13<span class="sign">&gt;</span><span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                time_of_change<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FBCD.html#robo153">BCD</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>2 <span class="sign">+</span> 11<span class="sign">,</span> 13<span class="sign">&gt;</span><span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                next_time_offset<span class="sign">)</span><span class="sign">;</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
+        <span class="sign">}</span>
+</pre>
+
+</div> <!-- content -->
+<div id="footer">
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Thu Jun 15 2017 16:22:04
+</p>
+</div> <!-- footer -->
+</body>
+</html>

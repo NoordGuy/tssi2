@@ -9,6 +9,9 @@ tssi2/
 *.vcxproj.filter
 *.dll
 *.ts
+*.xlsx
+*.mpv
+*.mpa
 
 # User-specific files
 *.suo

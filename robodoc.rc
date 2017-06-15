@@ -1,0 +1,44 @@
+# robodoc.rc file 
+items:
+	NAME
+	NOTES
+	DERIVED BY
+	DERIVED FROM
+	METHODS
+	TODO
+	DATA SCOPE
+	TYPES
+	SYNOPSIS 
+source items:
+	SYNOPSIS 
+remark begin markers:
+	/*
+remark end markers:
+	*/
+keywords:
+	if
+	for
+	inline
+	struct
+	using
+	private
+	public
+	protected
+	void
+	operator
+	const
+	switch
+	return
+	static_cast
+	typedef
+	template
+	sizeof
+	class
+	typename
+	define
+	namespace
+	try
+	catch
+	throw
+	char
+	noexcept

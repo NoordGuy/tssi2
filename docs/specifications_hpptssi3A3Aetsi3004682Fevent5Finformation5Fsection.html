@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./robodoc.css" type="text/css" />
+<title>./include/specifications.hpp</title>
+<!-- Source: ./include/specifications.hpp -->
+<!-- Generated with ROBODoc Version 4.99.36 (Mar 13 2008) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc"></a>
+</div> <!-- logo -->
+<div id="navigation">
+<a class="menuitem" href="./robo_modules.html#robo_top_of_doc">Modules</a></div> <!-- navigation -->
+<div id="content">
+<hr />
+<a name="tssi3a3aetsi3004682fevent5finformation5fsection"></a>
+<a name="robo31"></a><h2>tssi::etsi300468/event_information_section [ Modules ]</h2>
+
+<p class="item_name">NAME</p>
+<pre>    <strong>event_information_section</strong> -- "The EIT provides information in chronological order
+    regarding the events contained within each service" [ETSI EN 300 468 V1.13.1].
+    - PID: 0x12
+    - table_id: 0x4e (actual ts, present and following events)
+                0x4f (other ts, present and following events)
+                0x50 to 0x5f (actual ts, schedule)
+                0x60 to 0x6f (other ts, schedule)
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">        <span class="keyword">namespace</span> <strong>event_information_section</strong> <span class="sign">{</span>
+            <span class="keyword">using</span> <span class="keyword">namespace</span> iso138181<span class="sign">:</span><span class="sign">:</span><a href="./specifications_hpptssi3A3Aiso1381812Fprivate5Fsection5Fsyntax.html#robo114">private_section_syntax</a><span class="sign">;</span>
+            <span class="keyword">namespace</span> <span class="sign">{</span>
+                <span class="keyword">using</span> section_length_t <span class="sign">=</span>
+                    <a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">,</span> 0xfff<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">;</span>
+            <span class="sign">}</span>
+
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>3<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                service_id<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>8<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                transport_stream_id<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>10<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                original_network_id<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>12<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                segment_last_section_number<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>13<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                last_table_id<span class="sign">)</span><span class="sign">;</span>
+
+            <span class="sign">/</span><span class="sign">/</span> <span class="keyword">for</span> <span class="sign">(</span>auto loop <span class="sign">:</span> event_info_loop<span class="sign">(</span>data<span class="sign">)</span><span class="sign">)</span> <span class="sign">{</span>
+            <span class="keyword">namespace</span> loop <span class="sign">{</span>
+                <span class="keyword">namespace</span> <span class="sign">{</span>
+                    <span class="keyword">using</span> descriptors_loop_length_t <span class="sign">=</span>
+                        <a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>10<span class="sign">&gt;</span><span class="sign">,</span> 0xfff<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">;</span>
+                <span class="sign">}</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    event_id<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FTIME.html#robo173">TIME</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR40.html#robo168">R40</a><span class="sign">&lt;</span>2<span class="sign">&gt;</span><span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    start_time<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FDUR.html#robo157">DUR</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR24.html#robo166">R24</a><span class="sign">&lt;</span>7<span class="sign">&gt;</span><span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    <a href="./processnode_hppProcessNode2Fduration.html#robo131">duration</a><span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>10<span class="sign">&gt;</span><span class="sign">,</span> 0xe0<span class="sign">,</span> 5<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    running_status<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>10<span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    free_CA_mode<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span>descriptors_loop_length_t<span class="sign">)</span><span class="sign">,</span>
+                    descriptors_loop_length<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FITER.html#robo158">ITER</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>12<span class="sign">,</span> descriptors_loop_length_t<span class="sign">&gt;</span><span class="sign">,</span> <a href="./specifications_hpptssi2Fdescriptor5Floop.html#robo1">descriptor_loop</a><span class="sign">:</span><span class="sign">:</span>size<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    descriptors<span class="sign">)</span><span class="sign">;</span>
+
+                <span class="keyword">inline</span> ptrdiff_t size<span class="sign">(</span>gsl<span class="sign">:</span><span class="sign">:</span>span<span class="sign">&lt;</span><span class="keyword">const</span> <span class="keyword">char</span><span class="sign">&gt;</span> data<span class="sign">)</span> <span class="keyword">noexcept</span> <span class="sign">{</span> <span class="keyword">return</span> descriptors_loop_length<span class="sign">(</span>data<span class="sign">)</span> <span class="sign">+</span> 12<span class="sign">;</span> <span class="sign">}</span>
+
+            <span class="sign">}</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
+
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FITER.html#robo158">ITER</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>14<span class="sign">,</span> section_length_t<span class="sign">,</span> <span class="sign">-</span>15<span class="sign">&gt;</span><span class="sign">,</span> loop<span class="sign">:</span><span class="sign">:</span>size<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                event_info_loop<span class="sign">)</span><span class="sign">;</span>
+
+            <span class="sign">/</span><span class="sign">/</span> CRC_32
+        <span class="sign">}</span>
+</pre>
+
+</div> <!-- content -->
+<div id="footer">
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Thu Jun 15 2017 16:22:04
+</p>
+</div> <!-- footer -->
+</body>
+</html>

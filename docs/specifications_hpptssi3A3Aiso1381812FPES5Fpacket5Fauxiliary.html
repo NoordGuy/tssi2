@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./robodoc.css" type="text/css" />
+<title>./include/specifications.hpp</title>
+<!-- Source: ./include/specifications.hpp -->
+<!-- Generated with ROBODoc Version 4.99.36 (Mar 13 2008) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc"></a>
+</div> <!-- logo -->
+<div id="navigation">
+<a class="menuitem" href="./robo_modules.html#robo_top_of_doc">Modules</a></div> <!-- navigation -->
+<div id="content">
+<hr />
+<a name="tssi3a3aiso1381812fPES5fpacket5fauxiliary"></a>
+<a name="robo110"></a><h2>tssi::iso138181/PES_packet_auxiliary [ Modules ]</h2>
+
+<p class="item_name">NAME</p>
+<pre>    <strong>PES_packet_auxiliary</strong> -- Packetized Elementary Stream (PES) packets with thin header
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">        <span class="keyword">namespace</span> <strong>PES_packet_auxiliary</strong> <span class="sign">{</span>
+            <span class="keyword">using</span> <span class="keyword">namespace</span> <a href="./specifications_hpptssi3A3Aiso1381812FPES5Fpacket.html#robo109">PES_packet</a><span class="sign">;</span>
+            <span class="keyword">namespace</span> <span class="sign">{</span>
+                <span class="keyword">using</span> PES_packet_length_t <span class="sign">=</span>
+                    <a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>4<span class="sign">&gt;</span><span class="sign">;</span>
+            <span class="sign">}</span>
+
+            <span class="sign">/</span><span class="sign">/</span> <span class="keyword">if</span> <span class="sign">(</span>stream_id <span class="sign">=</span><span class="sign">=</span> program_stream_map
+            <span class="sign">/</span><span class="sign">/</span>  <span class="sign">|</span><span class="sign">|</span> stream_id <span class="sign">=</span><span class="sign">=</span> private_stream_2
+            <span class="sign">/</span><span class="sign">/</span>  <span class="sign">|</span><span class="sign">|</span> stream_id <span class="sign">=</span><span class="sign">=</span> ECM
+            <span class="sign">/</span><span class="sign">/</span>  <span class="sign">|</span><span class="sign">|</span> stream_id <span class="sign">=</span><span class="sign">=</span> EMM
+            <span class="sign">/</span><span class="sign">/</span>  <span class="sign">|</span><span class="sign">|</span> stream_id <span class="sign">=</span><span class="sign">=</span> program_stream_directory
+            <span class="sign">/</span><span class="sign">/</span>  <span class="sign">|</span><span class="sign">|</span> stream_id <span class="sign">=</span><span class="sign">=</span> DSMCC_stream
+            <span class="sign">/</span><span class="sign">/</span>  <span class="sign">|</span><span class="sign">|</span> stream_id <span class="sign">=</span><span class="sign">=</span> ITU <span class="sign">-</span> T Rec<span class="sign">.</span>H<span class="sign">.</span>222<span class="sign">.</span>1 type E stream<span class="sign">)</span> <span class="sign">{</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>6<span class="sign">,</span> PES_packet_length_t<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                PES_packet_data_bytes<span class="sign">)</span><span class="sign">;</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
+        <span class="sign">}</span>
+</pre>
+
+</div> <!-- content -->
+<div id="footer">
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Thu Jun 15 2017 16:22:05
+</p>
+</div> <!-- footer -->
+</body>
+</html>

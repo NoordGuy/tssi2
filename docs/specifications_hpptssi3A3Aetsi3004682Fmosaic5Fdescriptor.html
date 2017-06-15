@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./robodoc.css" type="text/css" />
+<title>./include/specifications.hpp</title>
+<!-- Source: ./include/specifications.hpp -->
+<!-- Generated with ROBODoc Version 4.99.36 (Mar 13 2008) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc"></a>
+</div> <!-- logo -->
+<div id="navigation">
+<a class="menuitem" href="./robo_modules.html#robo_top_of_doc">Modules</a></div> <!-- navigation -->
+<div id="content">
+<hr />
+<a name="tssi3a3aetsi3004682fmosaic5fdescriptor"></a>
+<a name="robo40"></a><h2>tssi::etsi300468/mosaic_descriptor [ Modules ]</h2>
+
+<p class="item_name">NAME</p>
+<pre>    <strong>mosaic_descriptor</strong> -- "A mosaic component is a collection of different video images
+    to form a coded video component. The information is organized so that each
+    specific information when displayed appears on a small area of a screen"
+    [ETSI EN 300 468 V1.13.1].
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">        <span class="keyword">namespace</span> <strong>mosaic_descriptor</strong> <span class="sign">{</span>
+            <span class="keyword">using</span> <span class="keyword">namespace</span> iso138181<span class="sign">:</span><span class="sign">:</span><a href="./specifications_hpptssi3A3Aiso1381812Fdescriptor.html#robo95">descriptor</a><span class="sign">;</span>
+            <span class="keyword">namespace</span> <span class="sign">{</span>
+                <span class="keyword">using</span> descriptor_length_t <span class="sign">=</span>
+                    <a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">;</span>
+            <span class="sign">}</span>
+            <span class="keyword">const</span> uint_fast8_t tag <span class="sign">=</span> 0x51<span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>2<span class="sign">,</span> 7<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                mosaic_entry_point<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>2<span class="sign">&gt;</span><span class="sign">,</span> 0x70<span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                number_of_horizontal_elementary_cells<span class="sign">)</span><span class="sign">;</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>2<span class="sign">&gt;</span><span class="sign">,</span> 0x7<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                number_of_vertical_elementary_cells<span class="sign">)</span><span class="sign">;</span>
+
+            <span class="sign">/</span><span class="sign">/</span> <span class="keyword">for</span> <span class="sign">(</span>auto loop <span class="sign">:</span> cell_loop<span class="sign">(</span>data<span class="sign">)</span><span class="sign">)</span> <span class="sign">{</span>
+            <span class="keyword">namespace</span> loop <span class="sign">{</span>
+                <span class="keyword">namespace</span> <span class="sign">{</span>
+                    <span class="keyword">using</span> elementary_cell_field_length_t <span class="sign">=</span>
+                        <a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>2<span class="sign">&gt;</span><span class="sign">;</span>
+                <span class="sign">}</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">,</span> 0xfc<span class="sign">,</span> 2<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    logical_cell_id<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">,</span> 0x7<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    logical_cell_presentation_info<span class="sign">)</span><span class="sign">;</span>
+
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span>elementary_cell_field_length_t<span class="sign">)</span><span class="sign">,</span>
+                    elementary_cell_field_length<span class="sign">)</span><span class="sign">;</span>
+
+                <span class="sign">/</span><span class="sign">/</span> <span class="keyword">for</span> <span class="sign">(</span>i <span class="sign">=</span> 0<span class="sign">;</span> i <span class="sign">&lt;</span> elementary_cell_field_length<span class="sign">;</span> i<span class="sign">+</span><span class="sign">+</span><span class="sign">)</span> <span class="sign">{</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>3<span class="sign">,</span> 1<span class="sign">&gt;</span><span class="sign">,</span> 0x3f<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    elementary_cell_id<span class="sign">)</span><span class="sign">;</span>
+                <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
+
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FADD5FR8.html#robo152">ADD_R8</a><span class="sign">&lt;</span>elementary_cell_field_length_t<span class="sign">,</span> 3<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    cell_linkage_info<span class="sign">)</span><span class="sign">;</span>
+
+                <span class="sign">/</span><span class="sign">/</span> <span class="keyword">if</span> <span class="sign">(</span>cell_linkage_info <span class="sign">=</span><span class="sign">=</span> 0x01<span class="sign">)</span> <span class="sign">{</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FADD5FR16.html#robo147">ADD_R16</a><span class="sign">&lt;</span>elementary_cell_field_length_t<span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    bouquet_id<span class="sign">)</span><span class="sign">;</span>
+                <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span> else <span class="keyword">if</span> <span class="sign">(</span>cell_linkage_info <span class="sign">=</span><span class="sign">=</span> 0x02 <span class="sign">|</span><span class="sign">|</span> cell_linkage_info <span class="sign">=</span><span class="sign">=</span> 0x03 <span class="sign">|</span><span class="sign">|</span> cell_linkage_info <span class="sign">=</span><span class="sign">=</span> 0x04<span class="sign">)</span> <span class="sign">{</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FADD5FR16.html#robo147">ADD_R16</a><span class="sign">&lt;</span>elementary_cell_field_length_t<span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    original_network_id<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FADD5FR16.html#robo147">ADD_R16</a><span class="sign">&lt;</span>elementary_cell_field_length_t<span class="sign">,</span> 6<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    transport_stream_id<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FADD5FR16.html#robo147">ADD_R16</a><span class="sign">&lt;</span>elementary_cell_field_length_t<span class="sign">,</span> 8<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    service_id<span class="sign">)</span><span class="sign">;</span>
+                <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span> 
+                <span class="sign">/</span><span class="sign">/</span> <span class="keyword">if</span> <span class="sign">(</span>cell_linkage_info <span class="sign">=</span><span class="sign">=</span> 0x04<span class="sign">)</span> <span class="sign">{</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FADD5FR16.html#robo147">ADD_R16</a><span class="sign">&lt;</span>elementary_cell_field_length_t<span class="sign">,</span> 10<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    event_id<span class="sign">)</span><span class="sign">;</span>
+                <span class="sign">/</span><span class="sign">/</span>
+
+                <span class="keyword">inline</span> ptrdiff_t size<span class="sign">(</span>gsl<span class="sign">:</span><span class="sign">:</span>span<span class="sign">&lt;</span><span class="keyword">const</span> <span class="keyword">char</span><span class="sign">&gt;</span> data<span class="sign">)</span> <span class="keyword">noexcept</span> <span class="sign">{</span> auto i <span class="sign">=</span> cell_linkage_info<span class="sign">(</span>data<span class="sign">)</span><span class="sign">;</span> auto l <span class="sign">=</span> elementary_cell_field_length<span class="sign">(</span>data<span class="sign">)</span><span class="sign">;</span>  <span class="keyword">if</span> <span class="sign">(</span>i <span class="sign">=</span><span class="sign">=</span> 0x1<span class="sign">)</span> <span class="keyword">return</span> l <span class="sign">+</span> 6<span class="sign">;</span> else <span class="keyword">if</span> <span class="sign">(</span>i <span class="sign">=</span><span class="sign">=</span> 0x2 <span class="sign">|</span><span class="sign">|</span> i <span class="sign">=</span><span class="sign">=</span> 0x3<span class="sign">)</span> <span class="keyword">return</span> l <span class="sign">+</span> 10<span class="sign">;</span> else <span class="keyword">if</span> <span class="sign">(</span>i <span class="sign">=</span><span class="sign">=</span> 0x4<span class="sign">)</span> <span class="keyword">return</span> l <span class="sign">+</span> 12<span class="sign">;</span> else <span class="keyword">return</span> l <span class="sign">+</span> 4<span class="sign">;</span> <span class="sign">}</span>
+            <span class="sign">}</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>    
+
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FITER.html#robo158">ITER</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>3<span class="sign">,</span> descriptor_length_t<span class="sign">,</span> <span class="sign">-</span>1<span class="sign">&gt;</span><span class="sign">,</span> loop<span class="sign">:</span><span class="sign">:</span>size<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                cell_loop<span class="sign">)</span><span class="sign">;</span>
+        <span class="sign">}</span>
+</pre>
+
+</div> <!-- content -->
+<div id="footer">
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Thu Jun 15 2017 16:22:04
+</p>
+</div> <!-- footer -->
+</body>
+</html>

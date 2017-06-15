@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./robodoc.css" type="text/css" />
+<title>./include/specifications.hpp</title>
+<!-- Source: ./include/specifications.hpp -->
+<!-- Generated with ROBODoc Version 4.99.36 (Mar 13 2008) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc"></a>
+</div> <!-- logo -->
+<div id="navigation">
+<a class="menuitem" href="./robo_modules.html#robo_top_of_doc">Modules</a></div> <!-- navigation -->
+<div id="content">
+<hr />
+<a name="tssi3a3aiso1381812fMuxcode5fdescriptor"></a>
+<a name="robo108"></a><h2>tssi::iso138181/Muxcode_descriptor [ Modules ]</h2>
+
+<p class="item_name">NAME</p>
+<pre>    <strong>Muxcode_descriptor</strong> -- "The <strong>Muxcode_descriptor</strong> conveys MuxCodeTableEntry
+    namespaceures" [ISO/IEC 13818-1, 2nd edition].
+</pre>
+<p class="item_name">TODO</p>
+<pre>    Add ISO 14496-1 content.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">        <span class="keyword">namespace</span> <strong>Muxcode_descriptor</strong> <span class="sign">{</span>
+            <span class="keyword">using</span> <span class="keyword">namespace</span> <a href="./specifications_hpptssi3A3Aiso1381812Fdescriptor.html#robo95">descriptor</a><span class="sign">;</span>
+            <span class="keyword">namespace</span> <span class="sign">{</span>
+                <span class="keyword">using</span> descriptor_length_t <span class="sign">=</span>
+                    <a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">;</span>
+            <span class="sign">}</span>
+            <span class="keyword">const</span> uint_fast8_t tag <span class="sign">=</span> 33<span class="sign">;</span>
+
+            <span class="sign">/</span><span class="sign">/</span> <span class="keyword">for</span> <span class="sign">(</span>auto loop <span class="sign">:</span> mux_code_table_loop<span class="sign">(</span>data<span class="sign">)</span><span class="sign">)</span> <span class="sign">{</span>
+            <span class="keyword">namespace</span> loop <span class="sign">{</span>
+                <span class="keyword">namespace</span> <span class="sign">{</span>
+                    <span class="keyword">using</span> length_t <span class="sign">=</span>
+                        <a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">;</span>
+                <span class="sign">}</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span>length_t<span class="sign">)</span><span class="sign">,</span>
+                    length<span class="sign">)</span><span class="sign">;</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>1<span class="sign">,</span> length_t<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                    MuxCodeTableEntry<span class="sign">)</span><span class="sign">;</span>
+
+                <span class="keyword">inline</span> ptrdiff_t size<span class="sign">(</span>gsl<span class="sign">:</span><span class="sign">:</span>span<span class="sign">&lt;</span><span class="keyword">const</span> <span class="keyword">char</span><span class="sign">&gt;</span> data<span class="sign">)</span> <span class="keyword">noexcept</span> <span class="sign">{</span> <span class="keyword">return</span> length<span class="sign">(</span>data<span class="sign">)</span> <span class="sign">+</span> 1<span class="sign">;</span> <span class="sign">}</span>
+
+            <span class="sign">}</span>
+            <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
+
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FITER.html#robo158">ITER</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>2<span class="sign">,</span> descriptor_length_t<span class="sign">&gt;</span><span class="sign">,</span> loop<span class="sign">:</span><span class="sign">:</span>size<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                mux_code_table_loop<span class="sign">)</span><span class="sign">;</span>
+        <span class="sign">}</span>
+</pre>
+
+</div> <!-- content -->
+<div id="footer">
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Thu Jun 15 2017 16:22:04
+</p>
+</div> <!-- footer -->
+</body>
+</html>
