@@ -97,7 +97,7 @@ for (auto& v : psi.psi_heap())
     // v.second: PSISection
     if ((get<0>(v.first) == 0x70) || (get<0>(v.first) == 0x73)) {
 ```
-Direct access to the section's data is available through `v.second.psi_data()`.
+Direct access to the section's data is available via `v.second.psi_data()`.
 ```c++
         auto data = v.second.psi_data();
 ```
@@ -109,7 +109,7 @@ The functions to analyze sections and descriptors are organized in namespaces. U
 		break;
 	}	
 ```
-The program should result in an output like:
+The program might now result in an output like:
 ```sh
   Fri Oct 28 23:06:06 2005
 ```
