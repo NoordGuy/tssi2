@@ -44,7 +44,7 @@ libtssi2 is compared against the simple memory read operation `read`.
 
 ```c++
 void read(span<const char> data) {
-	for (auto v : data) {}
+    for (auto v : data) {}
 }
 ```
 
@@ -53,10 +53,6 @@ Only the time spent in libtssi2 or `read`is measured. Disc to memory transfers a
 ![libtssi benchmark](./examples/benchmark/benchmark.png)
 
 All tests were conducted on a HP Spectre x360 with Intel Core i7-7500U. The source code is available under [examples/benchmark](./examples/benchmark/).
-
-# Documentation
-
-Download or clone the repository to access the HTML documentation located under [docs](./docs).
 
 # Quick start
 We want to detect the transmission time of a Transport Stream. Let us suppose you already have included the stream and vector files from C++ and introduced the namespace `std` (a source file is available, see examples). 
@@ -106,13 +102,17 @@ The functions to analyze sections and descriptors are organized in namespaces. U
         using namespace tssi::etsi300468::time_date_section;
         auto time = UTC_time(data);
         cout << ctime(&time) << endl;
-		break;
-	}	
+        break;
+    }	
 ```
 The program might now result in an output like:
 ```sh
   Fri Oct 28 23:06:06 2005
 ```
+
+# Documentation
+
+Download or clone the repository to access the HTML documentation located under [docs](./docs). For a full definition of all values have a look at the mentioned specifications.
 
 # Examples
 
