@@ -18,23 +18,23 @@ If you need another (e.g. commercial) license, [contact me](https://goforcode.co
 
 ## Features
 <dl>
-<dt>Fast</dt>
-<dd>See [Benchmark](#benchmark)</dd>
-<dt>Modern and leak-free <a href="https://www.youtube.com/watch?v=JfmTagWcqoE">by default</a></dt>
+<dt>📌 Fast</dt>
+<dd>See <a href="#benchmark">Benchmark</a></dd>
+<dt>📌 Modern and leak-free <a href="https://www.youtube.com/watch?v=JfmTagWcqoE">by default</a></dt>
 <dd>C++ 14 / C++ 17 / GSL</dd>
-<dt>Under active development</dt>
+<dt>📌 Under active development</dt>
 <dd>If there has not been an push for a while the next one will happen nevertheless.</dd>
-<dt>Lightweight</dt>
+<dt>📌 Lightweight</dt>
 <dd>The library is a few kb in size and header-only.</dd>
-<dt>Cross-platform</dt>
+<dt>📌 Cross-platform</dt>
 <dd>Windows, Linux, Mac,... should be supported</dd>
-<dt>No-throw</dt>
+<dt>📌 No-throw</dt>
 <dd>Transport Streams may be corrupted. libtssi2 is designed to handle data error and not to throw. This is not a no-throw guarantee! Some functions might throw (see the docs).</dd>
-<dt>Multi-threading support</dt>
+<dt>📌 Multi-threading support</dt>
 <dd>Reentrant with shared mutual exclusion</dd>
-<dt>(To some extent) class-less</dt>
+<dt>📌 (To some extent) class-less</dt>
 <dd>Processing of MPEG and DVB objects by stateless functions. No class overhead.</dd>
-<dt>Modular</dt>
+<dt>📌 Modular</dt>
 <dd>Custom data processors can replaced provided processors on any level. Custom allocators are supported as well.</dd>
 </dl>
 
