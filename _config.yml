@@ -2,3 +2,4 @@ theme: jekyll-theme-tactile
 author: Martin Hoernig
 title: Library tssi2
 description: A header-only library for parsing MPEG-2 and DVB Transport Streams
+show_downloads: true
