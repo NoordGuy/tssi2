@@ -38,11 +38,11 @@ If you need another (e.g. commercial) license, [contact me](https://goforcode.co
 <dd>Custom data processors can replaced provided processors on any level. Custom allocators are supported as well.</dd>
 </dl>
 
-[libtssi1](https://github.com/goforcode-com/libtssi) offers some nice features like ISO 13818-6 handling and will remain available on GitHub.
+[tssi1](https://github.com/goforcode-com/libtssi) offers some nice features like ISO 13818-6 handling and will remain available on GitHub.
 
 ## Benchmark
 
-libtssi2 is compared against the simple memory read operation `read`.
+tssi2 is compared against the simple memory read operation `read`.
 
 ```c++
 void read(span<const char> data) {
@@ -50,9 +50,9 @@ void read(span<const char> data) {
 }
 ```
 
-Only the time spent in libtssi2 or `read`is measured. Disc to memory transfers are omitted. Data is processed in 1MB chunks.
+Only the time spent in tssi2 or `read`is measured. Disc to memory transfers are omitted. Data is processed in 1MB chunks.
 
-![libtssi benchmark](./examples/benchmark/benchmark.png)
+![tssi benchmark](./examples/benchmark/benchmark.png)
 
 All tests were conducted on a HP Spectre x360 with Intel Core i7-7500U. The source code is available under [examples/benchmark](./examples/benchmark/).
 
