@@ -10,35 +10,37 @@ Dependencies:
 
   - [C++ Guideline Support Library](https://github.com/Microsoft/GSL) (header-only, included; mostly needed for `gsl::span<const T>`, a type just waiting for replacement by `std::array_view<T>` or `std::basic_string_view<T>`)
 
-# License
+## License
 
 The GNU General Public License v3 applies to this project. 
 
 If you need another (e.g. commercial) license, [contact me](https://goforcode.com).
 
-# Features
-  - Fast
-    - See [Benchmark](#benchmark)
-  - Modern and leak-free [by default](https://www.youtube.com/watch?v=JfmTagWcqoE)
-    - C++ 14 / C++ 17 / GSL
-  - Under active development
-    - If there has not been an push for a while the next one will happen nevertheless.
-  - Lightweight
-    - The library is a few kb in size and header-only.
-  - Cross-platform
-    - Windows, Linux, Mac,... should be supported
-  - No-throw
-    - Transport Streams may be corrupted. libtssi2 is designed to handle data error and not to throw. This is not a no-throw guarantee! Some functions might throw (see the docs). 
-  - Multi-threading support
-    - Reentrant with shared mutual exclusion
-  - (To some extent) class-less
-    - Processing of MPEG and DVB objects by stateless functions. No class overhead.
-  - Modular
-    - Custom data processors can replaced provided processors on any level. Custom allocators are supported as well.
+## Features
+<dl>
+<dt>Fast</dt>
+<dd>See [Benchmark](#benchmark)</dd>
+<dt>Modern and leak-free <a href="https://www.youtube.com/watch?v=JfmTagWcqoE">by default</a></dt>
+<dd>C++ 14 / C++ 17 / GSL</dd>
+<dt>Under active development</dt>
+<dd>If there has not been an push for a while the next one will happen nevertheless.</dd>
+<dt>Lightweight</dt>
+<dd>The library is a few kb in size and header-only.</dd>
+<dt>Cross-platform</dt>
+<dd>Windows, Linux, Mac,... should be supported</dd>
+<dt>No-throw</dt>
+<dd>Transport Streams may be corrupted. libtssi2 is designed to handle data error and not to throw. This is not a no-throw guarantee! Some functions might throw (see the docs).</dd>
+<dt>Multi-threading support</dt>
+<dd>Reentrant with shared mutual exclusion</dd>
+<dt>(To some extent) class-less</dt>
+<dd>Processing of MPEG and DVB objects by stateless functions. No class overhead.</dd>
+<dt>Modular</dt>
+<dd>Custom data processors can replaced provided processors on any level. Custom allocators are supported as well.</dd>
+</dl>
 
 [libtssi1](https://github.com/goforcode-com/libtssi) offers some nice features like ISO 13818-6 handling and will remain available on GitHub.
 
-# Benchmark
+## Benchmark
 
 libtssi2 is compared against the simple memory read operation `read`.
 
@@ -54,7 +56,7 @@ Only the time spent in libtssi2 or `read`is measured. Disc to memory transfers a
 
 All tests were conducted on a HP Spectre x360 with Intel Core i7-7500U. The source code is available under [examples/benchmark](./examples/benchmark/).
 
-# Quick start
+## Quick start
 We want to detect the transmission time of a Transport Stream. Let us suppose you already have included the stream and vector files from C++ and introduced the namespace `std` (a source file is available, see examples). 
 
 First of all, we load a Transport Stream into a buffer variable.
@@ -110,11 +112,11 @@ The program might now result in an output like:
   Fri Oct 28 23:06:06 2005
 ```
 
-# Documentation
+## Documentation
 
 Download or clone the repository to access the HTML documentation located under [docs](./docs). For a full definition of all values have a look at the mentioned specifications.
 
-# Examples
+## Examples
 
 Advertise by utilize:
 
@@ -126,7 +128,7 @@ Advertise by utilize:
  - [Multi-threading](./examples/multithreading/): A demo on reading from `PSIHeap` while `TSParser` tries to fill it with new information.
  - [Video player](./examples/videoplayer/): A video player using ffmpeg and SDL2.
 
-# Building the docs
+## Building the docs
 
 Should you want to build the docs for yourself, make [robodoc](http://rfsber.home.xs4all.nl/Robo/) available and use `doc.sh`or `doc.bat`. Modify the style either in the respective file or in `robodoc.rc`.
 
