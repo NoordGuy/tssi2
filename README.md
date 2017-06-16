@@ -29,7 +29,7 @@ If you need another (e.g. commercial) license, [contact me](https://goforcode.co
 <dt>📌 Cross-platform</dt>
 <dd>Windows, Linux, Mac,... should be supported</dd>
 <dt>📌 No-throw</dt>
-<dd>Transport Streams may be corrupted. libtssi2 is designed to handle data error and not to throw. This is not a no-throw guarantee! Some functions might throw (see the docs).</dd>
+<dd>Transport Streams are prone to data corruptions. tssi2 is designed to handle data errors and not to throw. This is not a no-throw guarantee! Some functions might throw (see the docs).</dd>
 <dt>📌 Multi-threading support</dt>
 <dd>Reentrant with shared mutual exclusion</dd>
 <dt>📌 (To some extent) class-less</dt>
