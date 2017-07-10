@@ -42,8 +42,6 @@ int main()
 	tssi::PESAssembler<> pes_assembler;
 
 	// pid and callback setup
-	parser.pid_parser({ 401, 402 }, pes_assembler);
-
 	pes_assembler.pes_callback(401, [&](span<const char> data) {
 		using namespace tssi::iso138181::PES_packet_media;
 		auto es_data = PES_packet_data_bytes(data);
@@ -54,6 +52,7 @@ int main()
 		auto es_data = PES_packet_data_bytes(data);
 		file_a.write(es_data.data(), es_data.size());
 	});
+	parser.pid_parser({ 401, 402 }, pes_assembler);
 
 	const size_t buffer_size = 1048576;
 	auto buffer = vector<char>(buffer_size);

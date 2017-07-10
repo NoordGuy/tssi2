@@ -219,13 +219,13 @@ public:
 
 	/****m* PSIHeap/psi_callback
 	*  NAME
-	*    psi_callback -- Esablish a callback, called when a new section becomes 
+	*    psi_callback -- Esablish a callback, called when a new heap section becomes 
 	*    available.
 	*  SYNOPSIS
 	*/
-	void psi_callback(std::function< void(const section_identifier&) >&& cb) 
+	void psi_callback(const std::shared_ptr<ProcessNode>& callback)
 	/*******/
-	{ transfer_callback = cb; }
+	{ transfer_callback = std::weak_ptr<ProcessNode>(callback); }
 
 	/****m* PSIHeap/lock_shared
 	*  NAME
@@ -290,8 +290,8 @@ private:
 					}
 					open_sections.erase(pid);
 
-					if (transfer_callback)
-						transfer_callback(heap_key);
+					if (auto x = transfer_callback.lock())
+						x->operator()(heap[heap_key].section_data);
 
 				}
 			}
@@ -358,8 +358,8 @@ private:
 					}
 					open_sections.erase(pid);
 
-					if (transfer_callback)
-						transfer_callback(heap_key);
+					if (auto x = transfer_callback.lock())
+						x->operator()(heap[heap_key].section_data);
 
 					continue;
 				}
@@ -389,7 +389,7 @@ private:
 	std::map<uint_fast16_t, PSISection<_Alloc>>			open_sections; // PID -> data
 	mutable std::shared_mutex							mutex;
 
-	std::function< void(const section_identifier&) >	transfer_callback;
+	std::weak_ptr<ProcessNode>							transfer_callback;
 
 };
 

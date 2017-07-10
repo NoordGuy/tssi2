@@ -553,26 +553,25 @@ int main() {
 	// the ts parser
 	TSParser<> parser;
 	// we need a psi storage, too
-	PSIHeap<> heap;
-	auto& psi_data = heap.psi_heap();
-
+	auto heap = make_shared<PSIHeap<>>();
+	
 	// add PIDs for PAT, PMT TSDT, NIT, BAT, SDT, TDT, TOT, RST, EIT, ...
 	parser.pid_parser({ 0x00, 0x01, 0x02, 0x10, 0x11, 0x12, 0x13, 0x14 }, heap);
 
 	// add PMTs via callback
-	heap.psi_callback([&](const tssi::section_identifier si) {
-		if (get<0>(si) != 0x00) // check for PMT
-			return;
-				
+	auto pat_scanner = make_shared < LambdaNode >([&](auto data) {
 		using namespace iso138181::program_association_section;
-	
+
+		if (table_id(data) != 0x00)
+			return;		
+
 		// PAT -> PMT
-		auto data = psi_data.at(si).psi_data();
 		for (size_t i = 0; i < N(data); ++i) {
 			parser.pid_parser({ program_map_PID(data, i) }, heap);
 		}
 	});
-
+	heap->psi_callback(pat_scanner);
+		
 	// read transport stream
 	while (file_ts.good()) {
 		file_ts.read(buffer.data(), buffer.size());
@@ -580,7 +579,9 @@ int main() {
 		if (file_ts.gcount() == buffer_size)
 			parser(buffer);
 	}
-
+	
+	// get the retrieved data
+	auto& psi_data = heap->psi_heap();
 
 	// write report
 	write_pat(file_html, psi_data);

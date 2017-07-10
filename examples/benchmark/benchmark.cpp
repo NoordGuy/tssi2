@@ -105,7 +105,6 @@ int main()
 	cout << "tssi param: Add a lot more PSI (and a callback function for the PMT):" << endl;
 
 	parser.pid_reset();
-	parser.pid_parser({ 0x01, 0x02, 0x10, 0x11, 0x12, 0x13, 0x14 }, heap);
 	
 	// add a callback function that will be used for PASs
 	heap.psi_callback([&](const tssi::section_identifier si) {
@@ -118,8 +117,10 @@ int main()
 		for (size_t i = 0; i < N(data); ++i) {
 			parser.pid_parser({ program_map_PID(data, i) }, heap);
 		}
-
 	});
+	parser.pid_parser({ 0x01, 0x02, 0x10, 0x11, 0x12, 0x13, 0x14 }, heap);
+
+
 	for (int i = 0; i < 3; ++i) {
 		benchmark(file_ts, parser);
 		// clear the data we have already parsed (no cheating)
