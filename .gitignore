@@ -12,6 +12,7 @@ tssi2/
 *.xlsx
 *.mpv
 *.mpa
+*.exe
 
 # User-specific files
 *.suo

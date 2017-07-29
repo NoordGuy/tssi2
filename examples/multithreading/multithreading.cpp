@@ -38,8 +38,10 @@ int main() {
 	}
 
 	TSParser<> parser;
-	PSIHeap<> heap;
-	auto& psi_data = heap.psi_heap();
+
+	// psi stuff
+	auto heap = make_shared<PSIHeap<>>();
+	auto& psi_data = heap->psi_heap();
 
 	atomic_bool process_thread = true;
 
@@ -54,7 +56,7 @@ int main() {
 		while (process_thread) {			
 			// count events through all cached sections
 			{
-				auto lock = heap.lock_shared();	
+				auto lock = heap->lock_shared();	
 				event_count = 0;
 				for (auto& section : psi_data) {
 					if (get<0>(section.first) >= 0x4e && get<0>(section.first) <= 0x6f) { // eit table id?

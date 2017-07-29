@@ -32,23 +32,26 @@ int main() {
 	auto b = vector<char>( 4'000'000 );
 	f.read(b.data(), b.size());	
 
-	// create tssi parser and psi analyzer
+	// create tssi parser and a common processing and storage object for psi data
 	auto ts = TSParser<>();
-	auto psi = PSIHeap<>();
+	auto heap = make_shared<PSIHeap<>>();
 
 	// we try to find the transmission data of the transport stream (pid 0x14)
 	// this is a service information, utilize psiheap
-	ts.pid_parser({ 0x14 }, psi);
+	ts.pid_parser({ 0x14 }, heap);
 
 	// process data
 	ts(b);
+
+	// get the retrieved data
+	auto& psi_data = heap->psi_heap();
 
 	// what have we got?
 	// parse time and date section and
 	// time offset section on pid 0x14
 	
 	// iterate over all sections parsed
-	for (auto& v : psi.psi_heap()) 
+	for (auto& v : psi_data)
 		// v.first is the section_identifier tuple
 		// v.second is the actual PSISection
 
