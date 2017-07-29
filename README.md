@@ -67,29 +67,31 @@ f.read(b.data(), b.size());
 ```
 Keep in mind to check for errors in real programs. We skip this part to illustrate the API itself.
 
-We now create a `TSParser` providing 188-byte TS packets and a `PSIHeap` that will process the packets and stores program-specific information.
+We now create a `TSParser` providing 188-byte TS packets for a `PSIHeap` that will process and store program-specific information for common usage (for this reason a shared pointer is used to share its ownership).
 ```c++
 auto ts = tssi::TSParser<>();
-auto psi = tssi::PSIHeap<>();
+auto heap = make_shared<PSIHeap<>>();
 ```
 The time and date information is stored on packets with PID `0x14`. We tell the parser what packets we are interested in and where to send them.
 ```c++
-ts.pid_parser({ 0x14 }, psi);
+ts.pid_parser({ 0x14 }, heap);
 ```
 This **could** also be a lambda
 ```c++
-ts.pid_parser({ 0x100, 0x200, 0x300 }, [&] (auto data) { });
+auto pid_parser = make_shared < LambdaNode >([&](auto data) { });
+ts.pid_parser({ 0x100, 0x200, 0x300 }, pid_parser);
 ```
-Or `PESAssembler` if you are interested in packetized elementary streams.
+or a `PESAssembler` if you are interested in packetized elementary streams.
 
 With the buffer and parser set up, we can process the data.
 ```c++
 ts(b);
 ```
 
-The PSI table_ids we are looking for are `0x70` and `0x73`.
+The PSI table_ids we are looking for are `0x70` and `0x73`, but first we retrieve a data reference from the heap.
 ```c++
-for (auto& v : psi.psi_heap())
+auto& psi_data = heap->psi_heap();
+for (auto& v : psi_data)
     // v.first: section_identifier tuple 
     //   (table_id, table_id_ext, section_number)
     // v.second: PSISection
