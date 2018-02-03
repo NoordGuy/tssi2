@@ -53,8 +53,8 @@ class TSParser : public ProcessNode {
 public:
 	/****m* TSParser/pid_reset
 	*  NAME
-	*    pid_reset -- Clears all pid -> function associations that has been stored. The 
-	*    parser is resetted to its AUSGANGSZUSTAND, but it is still able to pick up the
+	*    pid_reset -- Clears all pid to function associations that has been stored. The 
+	*    parser is resetted to its initial state, but it is still able to pick up the
 	*    Transport Stream were it left off.
 	*   SYNOPSIS
 	*/
@@ -66,26 +66,24 @@ public:
 	
 	/****m* TSParser/pid_parser
 	*  NAME
-	*    pid_parser -- Link a PID list with a callback (ProcessNode, functor or lambda...)
-	*	 Everytime a PID from the given list is found in the stream, the function is
-	*    called. Internally an std::weak_ptr is stored - the TSParser does not keep the
-	*    ProcessNode alive. You can call this function directly with callback_t as 2nd
-	*    parameter type, too.
+	*    pid_parser -- Link a Pid list with a callback (ProcessNode, functor or lambda...)
+	*	 Everytime a pid from the given list is found in the stream, the function is
+	*    called.
 	*   DATA SCOPE
 	*    iso138181::transport_packet
 	*   SYNOPSIS
 	*/
-	void pid_parser(const std::vector<uint_fast16_t>& pids, const std::shared_ptr<ProcessNode>& callback)
+	void pid_parser(const std::vector<uint_fast16_t>& pids, callback_t&& function)
 	/*******/
 	{
-		pid_list.push_back(std::make_pair(pids, std::weak_ptr<ProcessNode>(callback)));
+		pid_list.push_back(std::make_pair(pids, function));
 	}
 
 private:
 	void process(gsl::span<const char> data) {
 		Expects(data.size() >= 752);
 
-		const size_t in_len = data.size();
+		const size_t in_len = static_cast<size_t>(data.size());
 		size_t i = 0;
 		if (packet_buffer.size() > 0) {
 			if (data[0] == 0x47 &&
@@ -99,7 +97,7 @@ private:
 					(in_len > 188 - packet_buffer.size() &&
 						data[188 - packet_buffer.size()] == 0x47)) {
 					i += 188 - packet_buffer.size();
-					std::copy(std::begin(data), std::begin(data) + (188 - packet_buffer.size()), std::back_inserter(packet_buffer));
+					copy(std::begin(data), std::begin(data) + (188 - packet_buffer.size()), std::back_inserter(packet_buffer));
 					filter(packet_buffer);
 				}
 			}
@@ -134,16 +132,14 @@ private:
 		Expects(data.size() == 188);
 
 		const auto pid = iso138181::transport_packet::PID(data);
-		for (const auto& pair : pid_list)
-			if (std::find(pair.first.begin(), pair.first.end(), pid) != pair.first.end())
-				if (auto x = pair.second.lock())
-					x->operator()(data);
+		for (const auto& pair : pid_list) {
+			if (find(pair.first.begin(), pair.first.end(), pid) != pair.first.end())
+				pair.second(data);
+		}
 	}
 	
 	std::vector<char, _Alloc> packet_buffer;
-	std::list < 
-		std::pair< std::vector<uint_fast16_t>, std::weak_ptr<ProcessNode> >
-	> pid_list;
+	std::list < std::pair<std::vector<uint_fast16_t>, callback_t>> pid_list;
 
 };
 

@@ -88,7 +88,7 @@ public:
 	*    section_length!
 	*  SYNOPSIS
 	*/
-	size_t sizechars() const noexcept
+	ptrdiff_t sizechars() const noexcept
 	/*******/
 	{ return section_length; }
 
@@ -113,7 +113,7 @@ public:
 	/*******/
 	{
 		Expects(section_data.size() > 12);
-		uint_fast32_t crc = ~(0);
+		uint_fast32_t crc = ~(0u);
 		for (auto iter : section_data) {
 			crc = (crc >> 8) ^ crc32_table[(crc & 0xff) ^ static_cast<unsigned char>(iter)];
 		}
@@ -123,9 +123,9 @@ public:
 private:
 	friend class PSIHeap<_Alloc>;
 
-	void process(gsl::span<const char> data) { Expects(section_data.size() > 8); }
+	void process(gsl::span<const char> data) { data; Expects(section_data.size() > 8); }
 	std::vector<char, _Alloc> section_data;
-	size_t					section_length = 0; // total section length, != iso spec value
+	ptrdiff_t				section_length = 0; // total section length, != iso spec value
 	section_identifier		heap_key;
 
 	static constexpr uint_least32_t crc32_table[256] = {
@@ -219,13 +219,13 @@ public:
 
 	/****m* PSIHeap/psi_callback
 	*  NAME
-	*    psi_callback -- Esablish a callback, called when a new heap section becomes 
+	*    psi_callback -- Esablish a callback, called when a new section becomes 
 	*    available.
 	*  SYNOPSIS
 	*/
-	void psi_callback(const std::shared_ptr<ProcessNode>& callback)
+	void psi_callback(std::function< void(const section_identifier&) >&& cb) 
 	/*******/
-	{ transfer_callback = std::weak_ptr<ProcessNode>(callback); }
+	{ transfer_callback = cb; }
 
 	/****m* PSIHeap/lock_shared
 	*  NAME
@@ -290,8 +290,8 @@ private:
 					}
 					open_sections.erase(pid);
 
-					if (auto x = transfer_callback.lock())
-						x->operator()(heap[heap_key].section_data);
+					if (transfer_callback)
+						transfer_callback(heap_key);
 
 				}
 			}
@@ -312,14 +312,12 @@ private:
 				if (table_id_ == 0xff)
 					break; // stuffing
 
+				
 				// create a key for this section
-
-				bool section_cached = false;
-
 				auto heap_key = std::make_tuple(
 					table_id_,
-					section_syntax_indicator_ ? table_id_extension(data_section) : 0,
-					section_syntax_indicator_ ? section_number(data_section) : 0);
+					static_cast<uint_fast16_t>(section_syntax_indicator_ ? table_id_extension(data_section) : 0),
+					static_cast<uint_fast8_t>(section_syntax_indicator_ ? section_number(data_section) : 0));
 
 				if (section_syntax_indicator_ && !current_next_indicator(data_section)) // future data
 					goto nocaching;
@@ -358,8 +356,8 @@ private:
 					}
 					open_sections.erase(pid);
 
-					if (auto x = transfer_callback.lock())
-						x->operator()(heap[heap_key].section_data);
+					if (transfer_callback)
+						transfer_callback(heap_key);
 
 					continue;
 				}
@@ -389,7 +387,7 @@ private:
 	std::map<uint_fast16_t, PSISection<_Alloc>>			open_sections; // PID -> data
 	mutable std::shared_mutex							mutex;
 
-	std::weak_ptr<ProcessNode>							transfer_callback;
+	std::function< void(const section_identifier&) >	transfer_callback;
 
 };
 

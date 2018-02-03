@@ -24,296 +24,294 @@
 
 namespace tssi
 {
+	
+	/****t* tssi/R1
+	*  NAME
+	*    R1 -- Reads a byte
+	*             - at offset or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset
+	*    and returns the bit at bit_position.
+	*  SOURCE
+	*/
+	template <size_t offset, size_t bit_position, size_t loop_length = 0>
+	using R1 = bit_reader<basic_reader<offset, loop_length>, bit_position>;
+	/*******/
 
-	namespace {
+	/****t* tssi/R8
+	*  NAME
+	*    R8 -- Reads 8 bits
+	*             - at offset or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset.
+	*  SOURCE
+	*/
+	template <size_t offset, size_t loop_length = 0>
+	using R8 = endian_aware_value_reader<uint_fast8_t, basic_reader<offset, loop_length>, 1>;
+	/*******/
 
-		/****t* tssi/R1
-		*  NAME
-		*    R1 -- Reads a byte
-		*             - at offset or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset
-		*    and returns the bit at bit_position.
-		*  SOURCE
-		*/
-		template <size_t offset, size_t bit_position, size_t loop_length = 0>
-		using R1 = bit_reader<basic_reader<offset, loop_length>, bit_position>;
-		/*******/
+	/****t* tssi/R16
+	*  NAME
+	*    R16 -- Reads 8 bits
+	*             - at offset or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset.
+	*  SOURCE
+	*/
+	template <size_t offset, size_t loop_length = 0>
+	using R16 = endian_aware_value_reader<uint_fast16_t, basic_reader<offset, loop_length>, 2>;
+	/*******/
 
-		/****t* tssi/R8
-		*  NAME
-		*    R8 -- Reads 8 bits
-		*             - at offset or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset.
-		*  SOURCE
-		*/
-		template <size_t offset, size_t loop_length = 0>
-		using R8 = endian_aware_value_reader<uint_fast8_t, basic_reader<offset, loop_length>, 1>;
-		/*******/
+	/****t* tssi/R24
+	*  NAME
+	*    R24 -- Reads 24 bits
+	*             - at offset or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset.
+	*  SOURCE
+	*/
+	template <size_t offset, size_t loop_length = 0>
+	using R24 = endian_aware_value_reader<uint_fast32_t, basic_reader<offset, loop_length>, 3>;
+	/*******/
 
-		/****t* tssi/R16
-		*  NAME
-		*    R16 -- Reads 8 bits
-		*             - at offset or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset.
-		*  SOURCE
-		*/
-		template <size_t offset, size_t loop_length = 0>
-		using R16 = endian_aware_value_reader<uint_fast16_t, basic_reader<offset, loop_length>, 2>;
-		/*******/
+	/****t* tssi/R32
+	*  NAME
+	*    R32 -- Reads 32 bits
+	*             - at offset or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset.
+	*  SOURCE
+	*/
+	template <size_t offset, size_t loop_length = 0>
+	using R32 = endian_aware_value_reader<uint_fast32_t, basic_reader<offset, loop_length>, 4>;
+	/*******/
 
-		/****t* tssi/R24
-		*  NAME
-		*    R24 -- Reads 24 bits
-		*             - at offset or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset.
-		*  SOURCE
-		*/
-		template <size_t offset, size_t loop_length = 0>
-		using R24 = endian_aware_value_reader<uint_fast32_t, basic_reader<offset, loop_length>, 3>;
-		/*******/
+	/****t* tssi/R40
+	*  NAME
+	*    R40 -- Reads 40 bits
+	*             - at offset or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset.
+	*  SOURCE
+	*/
+	template <size_t offset, size_t loop_length = 0>
+	using R40 = endian_aware_value_reader<uint_fast64_t, basic_reader<offset, loop_length>, 5>;
+	/*******/
 
-		/****t* tssi/R32
-		*  NAME
-		*    R32 -- Reads 32 bits
-		*             - at offset or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset.
-		*  SOURCE
-		*/
-		template <size_t offset, size_t loop_length = 0>
-		using R32 = endian_aware_value_reader<uint_fast32_t, basic_reader<offset, loop_length>, 4>;
-		/*******/
+	/****t* tssi/R64
+	*  NAME
+	*    R64 -- Reads 64 bits
+	*             - at offset or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset.
+	*  SOURCE
+	*/
+	template <size_t offset, size_t loop_length = 0>
+	using R64 = endian_aware_value_reader<uint_fast64_t, basic_reader<offset, loop_length>, 8>;
+	/*******/
 
-		/****t* tssi/R40
-		*  NAME
-		*    R40 -- Reads 40 bits
-		*             - at offset or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset.
-		*  SOURCE
-		*/
-		template <size_t offset, size_t loop_length = 0>
-		using R40 = endian_aware_value_reader<uint_fast64_t, basic_reader<offset, loop_length>, 5>;
-		/*******/
+	/****t* tssi/ADD_R1
+	*  NAME
+	*    ADD_R1 -- Reads a byte
+	*             - at (reference + offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset)
+	*    and returns the bit at bit_position.
+	*  SOURCE
+	*/		
+	template <class reference, size_t offset, size_t bit_position, size_t loop_length = 0>
+	using ADD_R1 = bit_reader<combined_reader<
+		basic_reader<offset, loop_length>, reference>, bit_position>;
+	/*******/
 
-		/****t* tssi/R64
-		*  NAME
-		*    R64 -- Reads 64 bits
-		*             - at offset or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset.
-		*  SOURCE
-		*/
-		template <size_t offset, size_t loop_length = 0>
-		using R64 = endian_aware_value_reader<uint_fast64_t, basic_reader<offset, loop_length>, 8>;
-		/*******/
+	/****t* tssi/ADD_R8
+	*  NAME
+	*    ADD_R8 -- Reads 8 bits
+	*             - at (reference + offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset).
+	*  SOURCE
+	*/
+	template <class reference, size_t offset, size_t loop_length = 0>
+	using ADD_R8 = endian_aware_value_reader<
+		uint_fast8_t, combined_reader<basic_reader<offset, loop_length>, reference>, 1>;
+	/*******/
 
-		/****t* tssi/ADD_R1
-		*  NAME
-		*    ADD_R1 -- Reads a byte
-		*             - at (reference + offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset)
-		*    and returns the bit at bit_position.
-		*  SOURCE
-		*/		
-		template <class reference, size_t offset, size_t bit_position, size_t loop_length = 0>
-		using ADD_R1 = bit_reader<combined_reader<
-			basic_reader<offset, loop_length>, reference>, bit_position>;
-		/*******/
+	/****t* tssi/ADD_R16
+	*  NAME
+	*    ADD_R16 -- Reads 16 bits
+	*             - at (reference + offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset).
+	*  SOURCE
+	*/
+	template <class reference, size_t offset, size_t loop_length = 0>
+	using ADD_R16 = endian_aware_value_reader<
+		uint_fast16_t, combined_reader<basic_reader<offset, loop_length>, reference>, 2>;
+	/*******/
 
-		/****t* tssi/ADD_R8
-		*  NAME
-		*    ADD_R8 -- Reads 8 bits
-		*             - at (reference + offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset).
-		*  SOURCE
-		*/
-		template <class reference, size_t offset, size_t loop_length = 0>
-		using ADD_R8 = endian_aware_value_reader<
-			uint_fast8_t, combined_reader<basic_reader<offset, loop_length>, reference>, 1>;
-		/*******/
+	/****t* tssi/ADD_R24
+	*  NAME
+	*    ADD_R24 -- Reads 24 bits
+	*             - at (reference + offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset).
+	*  SOURCE
+	*/
+	template <class reference, size_t offset, size_t loop_length = 0>
+	using ADD_R24 = endian_aware_value_reader<
+		uint_fast32_t, combined_reader<basic_reader<offset, loop_length>, reference>, 3>;
+	/*******/
 
-		/****t* tssi/ADD_R16
-		*  NAME
-		*    ADD_R16 -- Reads 16 bits
-		*             - at (reference + offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset).
-		*  SOURCE
-		*/
-		template <class reference, size_t offset, size_t loop_length = 0>
-		using ADD_R16 = endian_aware_value_reader<
-			uint_fast16_t, combined_reader<basic_reader<offset, loop_length>, reference>, 2>;
-		/*******/
+	/****t* tssi/ADD_R32
+	*  NAME
+	*    ADD_R32 -- Reads 32 bits
+	*             - at (reference + offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset).
+	*  SOURCE
+	*/
+	template <class reference, size_t offset, size_t loop_length = 0>
+	using ADD_R32 = endian_aware_value_reader<
+		uint_fast32_t, combined_reader<basic_reader<offset, loop_length>, reference>, 4>;
+	/*******/
 
-		/****t* tssi/ADD_R24
-		*  NAME
-		*    ADD_R24 -- Reads 24 bits
-		*             - at (reference + offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset).
-		*  SOURCE
-		*/
-		template <class reference, size_t offset, size_t loop_length = 0>
-		using ADD_R24 = endian_aware_value_reader<
-			uint_fast32_t, combined_reader<basic_reader<offset, loop_length>, reference>, 3>;
-		/*******/
+	/****t* tssi/ADD_R40
+	*  NAME
+	*    ADD_R40 -- Reads 40 bits
+	*             - at (reference + offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset).
+	*  SOURCE
+	*/
+	template <class reference, size_t offset, size_t loop_length = 0>
+	using ADD_R40 = endian_aware_value_reader<
+		uint_fast64_t, combined_reader<basic_reader<offset, loop_length>, reference>, 5>;
+	/*******/
 
-		/****t* tssi/ADD_R32
-		*  NAME
-		*    ADD_R32 -- Reads 32 bits
-		*             - at (reference + offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset).
-		*  SOURCE
-		*/
-		template <class reference, size_t offset, size_t loop_length = 0>
-		using ADD_R32 = endian_aware_value_reader<
-			uint_fast32_t, combined_reader<basic_reader<offset, loop_length>, reference>, 4>;
-		/*******/
+	/****t* tssi/ADD_R64
+	*  NAME
+	*    ADD_R64 -- Reads 64 bits
+	*             - at (reference + offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset).
+	*  SOURCE
+	*/
+	template <class reference, size_t offset, size_t loop_length = 0>
+	using ADD_R64 = endian_aware_value_reader<
+		uint_fast64_t, combined_reader<basic_reader<offset, loop_length>, reference>, 8>;
+	/*******/
 
-		/****t* tssi/ADD_R40
-		*  NAME
-		*    ADD_R40 -- Reads 40 bits
-		*             - at (reference + offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset).
-		*  SOURCE
-		*/
-		template <class reference, size_t offset, size_t loop_length = 0>
-		using ADD_R40 = endian_aware_value_reader<
-			uint_fast64_t, combined_reader<basic_reader<offset, loop_length>, reference>, 5>;
-		/*******/
+	/****t* tssi/DAT
+	*  NAME
+	*    DAT -- Reads a gsl::span<const char> memory buffer
+	*             - at offset with length (count_reference + reference_offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               offset with length (count_reference + reference_offset).
+	*  SOURCE
+	*/
+	template <size_t offset, class count_reference, ptrdiff_t reference_offset = 0, size_t loop_length = 0>
+	using DAT = span_reader<offset, count_reference, reference_offset, loop_length>;
+	/*******/
 
-		/****t* tssi/ADD_R64
-		*  NAME
-		*    ADD_R64 -- Reads 64 bits
-		*             - at (reference + offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset).
-		*  SOURCE
-		*/
-		template <class reference, size_t offset, size_t loop_length = 0>
-		using ADD_R64 = endian_aware_value_reader<
-			uint_fast64_t, combined_reader<basic_reader<offset, loop_length>, reference>, 8>;
-		/*******/
+	/****t* tssi/ADD_DAT
+	*  NAME
+	*    ADD_DAT -- Reads a gsl::span<const char> memory buffer
+	*             - at (reference + offset) with length (count_reference +
+	*               reference_offset) or
+	*             - in an i-th iteration of a loop with fixed loop size loop_length at
+	*               (reference + offset) with length (count_reference + reference_offset).
+	*  SOURCE
+	*/
+	template <class reference, size_t offset, class count_reference, ptrdiff_t reference_offset = 0, size_t loop_length = 0>
+	using ADD_DAT = combined_reader<span_reader
+		<offset, count_reference, reference_offset, loop_length>, reference>;
+	/*******/
 
-		/****t* tssi/DAT
-		*  NAME
-		*    DAT -- Reads a gsl::span<const char> memory buffer
-		*             - at offset with length (count_reference + reference_offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               offset with length (count_reference + reference_offset).
-		*  SOURCE
-		*/
-		template <size_t offset, class count_reference, ptrdiff_t reference_offset = 0, size_t loop_length = 0>
-		using DAT = span_reader<offset, count_reference, reference_offset, loop_length>;
-		/*******/
+	/****t* tssi/ADD
+	*  NAME
+	*    ADD -- Calculates the sum of two references.
+	*  SOURCE
+	*/
+	template <class reference_a, class reference_b>
+	using ADD = reference_sum<reference_a, reference_b>;
+	/*******/
 
-		/****t* tssi/ADD_DAT
-		*  NAME
-		*    ADD_DAT -- Reads a gsl::span<const char> memory buffer
-		*             - at (reference + offset) with length (count_reference +
-		*               reference_offset) or
-		*             - in an i-th iteration of a loop with fixed loop size loop_length at
-		*               (reference + offset) with length (count_reference + reference_offset).
-		*  SOURCE
-		*/
-		template <class reference, size_t offset, class count_reference, ptrdiff_t reference_offset = 0, size_t loop_length = 0>
-		using ADD_DAT = combined_reader<span_reader
-			<offset, count_reference, reference_offset, loop_length>, reference>;
-		/*******/
+	/****t* tssi/SUB
+	*  NAME
+	*    SUB -- Calculates the difference of two references.
+	*  SOURCE
+	*/
+	template <class reference_a, class reference_b>
+	using SUB = reference_difference<reference_a, reference_b>;
+	/*******/
 
-		/****t* tssi/ADD
-		*  NAME
-		*    ADD -- Calculates the sum of two references.
-		*  SOURCE
-		*/
-		template <class reference_a, class reference_b>
-		using ADD = reference_sum<reference_a, reference_b>;
-		/*******/
+	/****t* tssi/MS
+	*  NAME
+	*    MS -- Performs a bitwise and followed by a shift right operation on the given value:
+	*          (value & mask) >> shift
+	*  SOURCE
+	*/
+	template <class value, uint_fast64_t mask, uint_fast64_t shift>
+	using MS = mask_shift<value, mask, shift>;
+	/*******/
 
-		/****t* tssi/SUB
-		*  NAME
-		*    SUB -- Calculates the difference of two references.
-		*  SOURCE
-		*/
-		template <class reference_a, class reference_b>
-		using SUB = reference_difference<reference_a, reference_b>;
-		/*******/
+	/****t* tssi/TIME
+	*  NAME
+	*    TIME -- Converts an ETSI 300 468 Annex C-typed time value to time_c.
+	*  SOURCE
+	*/
+	template <class value> 
+	using TIME = time_convert<value>;
+	/*******/
 
-		/****t* tssi/MS
-		*  NAME
-		*    MS -- Performs a bitwise and followed by a shift right operation on the given value:
-		*          (value & mask) >> shift
-		*  SOURCE
-		*/
-		template <class value, uint_fast64_t mask, uint_fast64_t shift>
-		using MS = mask_shift<value, mask, shift>;
-		/*******/
+	/****t* tssi/DUR
+	*  NAME
+	*    DUR -- Converts a six digit (hh::mm:ss) BCD duration value to 
+	*    std::chrono::seconds.
+	*  SOURCE
+	*/
+	template <class duration>
+	using DUR = duration_convert<duration>;
+	/*******/
 
-		/****t* tssi/TIME
-		*  NAME
-		*    TIME -- Converts an ETSI 300 468 Annex C-typed time value to time_c.
-		*  SOURCE
-		*/
-		template <class value> 
-		using TIME = time_convert<value>;
-		/*******/
+	/****t* tssi/CHAR
+	*  NAME
+	*    CHAR -- Converts an ETSI EN 300468 Annex A (Text) memory buffer to utf-8
+	*    carried within std::string. The returned object is a std::pair of bool and
+	*    std::string. The bool is true if the conversion was successful otherwise it
+	*    the string contains an error message.
+	*  NOTES
+	*    CHAR may throw exceptions (see std::string).
+	*  SOURCE
+	*/
+	template <class span>
+	using CHAR = string_reader<span>;
+	/*******/
 
-		/****t* tssi/DUR
-		*  NAME
-		*    DUR -- Converts a six digit (hh::mm:ss) BCD duration value to 
-		*    std::chrono::seconds.
-		*  SOURCE
-		*/
-		template <class duration>
-		using DUR = duration_convert<duration>;
-		/*******/
+	/****t* tssi/BCD
+	*  NAME
+	*    BCD -- Decodes a given BCD value. 
+	*  SOURCE
+	*/
+	template <class value, size_t digits>
+	using BCD = bcd_convert<value, digits>;
+	/*******/
 
-		/****t* tssi/CHAR
-		*  NAME
-		*    CHAR -- Converts an ETSI EN 300468 Annex A (Text) memory buffer to utf-8
-		*    carried within std::string. The returned object is a std::pair of bool and
-		*    std::string. The bool is true if the conversion was successful otherwise it
-		*    the string contains an error message.
-		*  NOTES
-		*    CHAR may throw exceptions (see std::string).
-		*  SOURCE
-		*/
-		template <class span>
-		using CHAR = string_reader<span>;
-		/*******/
+	/****t* tssi/ITER
+	*  NAME
+	*    ITER -- Associates data (gsl::span<const char>) with syntax (structure). Therefore,
+	*    allows to iterate through data loops of variables sizes by utilizing
+	*    range_span, range_span_iterator and range for.
+	*    e.g.
+	*       for (auto loop : range_span_ITER(data)) {}
+	*  SOURCE
+	*/
+	template <class span, tssi_size_t structure>
+	using ITER = iterable_span<span, structure>;
+	/*******/
 
-		/****t* tssi/BCD
-		*  NAME
-		*    BCD -- Decodes a given BCD value. 
-		*  SOURCE
-		*/
-		template <class value, size_t digits>
-		using BCD = bcd_convert<value, digits>;
-		/*******/
 
-		/****t* tssi/ITER
-		*  NAME
-		*    ITER -- Associates data (gsl::span<const char>) with syntax (structure). Therefore,
-		*    allows to iterate through data loops of variables sizes by utilizing
-		*    range_span, range_span_iterator and range for.
-		*    e.g.
-		*       for (auto loop : range_span_ITER(data)) {}
-		*  SOURCE
-		*/
-		template <class span, tssi_size_t structure>
-		using ITER = iterable_span<span, structure>;
-		/*******/
-
-	}
 
 #define TSSI_MTD_ESC(...) __VA_ARGS__
 
@@ -332,6 +330,46 @@ namespace tssi
 */
 #define TSSI_MTD(classname, functionname) TSSI_MTD_FAC(TSSI_MTD_ESC classname, functionname)
 /*******/
+
+	namespace iso138183 {
+
+		/****h* tssi::iso138183/frame_header
+		*  NAME
+		*    frame_header -- MPEG Audio frame header, version 1 (ISO 11172-3), 
+		*    version 2 (ISO 13818-3), and version 2.5
+		*  SOURCE
+		*/
+		namespace frame_header {
+			TSSI_MTD((MS<R16<0>, 0xffe0, 5>),
+				frame_sync);
+			TSSI_MTD((MS<R8<1>, 0x18, 3>),
+				mpeg_audio_version);
+			TSSI_MTD((MS<R8<1>, 0x6, 1>),
+				layer_description);
+			TSSI_MTD((R1<1, 7>),
+				crc_protection_bit);
+			TSSI_MTD((MS<R8<2>, 0xf0, 4>),
+				bitrate_index);
+			TSSI_MTD((MS<R8<2>, 0xc, 2>),
+				sampling_rate_index);
+			TSSI_MTD((R1<2, 6>),
+				padding_bit);
+			TSSI_MTD((R1<2, 7>),
+				private_bit);
+			TSSI_MTD((MS<R8<3>, 0xc0, 6>),
+				channel_mode);
+			TSSI_MTD((MS<R8<3>, 0x30, 4>),
+				mode_extension);
+			TSSI_MTD((R1<3, 4>),
+				copyright_bit);
+			TSSI_MTD((R1<3, 5>),
+				original_media_bit);
+			TSSI_MTD((MS<R8<3>, 0x03, 0>),
+				emphasis);
+		}
+		/*******/
+
+	}
 
 	namespace iso138181 {
 

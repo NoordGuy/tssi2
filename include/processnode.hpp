@@ -35,7 +35,7 @@ namespace tssi
 *    iso138181::private_section,...
 *  SYNOPSIS
 */
-using callback_t = std::function< void(gsl::span<const char> data) >;
+typedef std::function< void(gsl::span<const char> data) > callback_t;
 /*******/
 
 /****c* tssi/ProcessNode
@@ -61,7 +61,7 @@ private:
 #endif //DEBUG
 
 public:
-	//operator callback_t() { return [this](auto data) { this->operator()(data); }; }
+	operator callback_t() { return [this](auto data) { this->operator()(data); }; }
 
 	/****m* ProcessNode/operator()
 	*  NAME
@@ -131,24 +131,6 @@ public:
 
 };
 
-class LambdaNode : public ProcessNode {
-public:
-	LambdaNode(callback_t callback) :
-		callback(callback) { }
-
-	LambdaNode(const LambdaNode& rhs) {
-		callback = rhs.callback;
-	}
-
-	LambdaNode(LambdaNode&& rhs) {
-		std::swap(callback, rhs.callback);
-	}
-
-private:
-	callback_t callback;
-
-	void process(gsl::span<const char> data) { callback(data); }
-};
 
 }
 

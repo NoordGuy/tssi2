@@ -57,16 +57,12 @@ public:
 	/****m* PESAssembler/pes_callback
 	*  NAME
 	*    pes_callback -- Establish a callback for Packetized Elementary Stream (PES) packets 
-	*    on a certain PID. Multiple callpacks per PID are possible. Internally an 
-	*    std::weak_ptr is stored - the TSParser does not keep the ProcessNode alive. You can 
-	*    call this function directly with callback_t as 2nd parameter type, too.
+	*    on a certain PID. Multiple callpacks per PID are possible.
 	*  SYNOPSIS
 	*/
-	void pes_callback(const std::vector<uint_fast16_t>& pids, const std::shared_ptr<ProcessNode>& callback)
+	void pes_callback(uint_fast16_t pid, callback_t&& cb) 
 	/*******/
-	{
-		sink_callbacks.insert({ pids, std::weak_ptr<ProcessNode>(callback) });
-	}
+	{ Expects(pid <= 8192); sink_callbacks.insert({ pid, cb }); }
 
 private:
 	const size_t packet_standard_length = 16384;
@@ -131,16 +127,16 @@ private:
 			return;
 
 		auto range = sink_callbacks.equal_range(pid);
-		for (auto it = range.first; it != range.second; ++it)
-			if (auto x = it->second.lock())
-				x->operator()(data);
+		for (auto it = range.first; it != range.second; ++it) {
+			it->second(data);
+		}
 
 	}
 
-	std::map< uint_fast16_t, std::vector<char, _Alloc> >
+	std::map<uint_fast16_t, std::vector<char, _Alloc>>
 		open_packets; // PID -> data
 
-	std::unordered_multimap< uint_fast16_t, std::weak_ptr<ProcessNode> >
+	std::unordered_multimap<uint_fast16_t, callback_t>
 		sink_callbacks;
 
 };
