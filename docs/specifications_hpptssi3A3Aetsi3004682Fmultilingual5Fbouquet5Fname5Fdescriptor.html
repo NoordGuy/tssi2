@@ -31,7 +31,7 @@
             <span class="keyword">using</span> <span class="keyword">namespace</span> iso138181<span class="sign">:</span><span class="sign">:</span><a href="./specifications_hpptssi3A3Aiso1381812Fdescriptor.html#robo95">descriptor</a><span class="sign">;</span>
             <span class="keyword">namespace</span> <span class="sign">{</span>
                 <span class="keyword">using</span> descriptor_length_t <span class="sign">=</span>
-                    <a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">;</span>
+                    <a href="./specifications_hpptssi2FR8.html#robo175">R8</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">;</span>
             <span class="sign">}</span>
             <span class="keyword">const</span> uint_fast8_t tag <span class="sign">=</span> 0x5c<span class="sign">;</span>
 
@@ -39,28 +39,28 @@
             <span class="keyword">namespace</span> loop <span class="sign">{</span>
                 <span class="keyword">namespace</span> <span class="sign">{</span>
                     <span class="keyword">using</span> bouquet_name_length_t <span class="sign">=</span>
-                        <a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>3<span class="sign">&gt;</span><span class="sign">;</span>
+                        <a href="./specifications_hpptssi2FR8.html#robo175">R8</a><span class="sign">&lt;</span>3<span class="sign">&gt;</span><span class="sign">;</span>
                 <span class="sign">}</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR24.html#robo166">R24</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR24.html#robo171">R24</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     ISO_639_language_code<span class="sign">)</span><span class="sign">;</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span>bouquet_name_length_t<span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span>bouquet_name_length_t<span class="sign">)</span><span class="sign">,</span>
                     bouquet_name_length<span class="sign">)</span><span class="sign">;</span>
 
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FCHAR.html#robo155">CHAR</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>4<span class="sign">,</span> bouquet_name_length_t<span class="sign">&gt;</span><span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FCHAR.html#robo159">CHAR</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo160">DAT</a><span class="sign">&lt;</span>4<span class="sign">,</span> bouquet_name_length_t<span class="sign">&gt;</span><span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     chars<span class="sign">)</span><span class="sign">;</span>
 
                 <span class="keyword">inline</span> ptrdiff_t size<span class="sign">(</span>gsl<span class="sign">:</span><span class="sign">:</span>span<span class="sign">&lt;</span><span class="keyword">const</span> <span class="keyword">char</span><span class="sign">&gt;</span> data<span class="sign">)</span> <span class="keyword">noexcept</span> <span class="sign">{</span> <span class="keyword">return</span> bouquet_name_length<span class="sign">(</span>data<span class="sign">)</span> <span class="sign">+</span> 4<span class="sign">;</span> <span class="sign">}</span>
             <span class="sign">}</span>
             <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span>
 
-            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FITER.html#robo158">ITER</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>2<span class="sign">,</span> descriptor_length_t<span class="sign">&gt;</span><span class="sign">,</span> loop<span class="sign">:</span><span class="sign">:</span>size<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FITER.html#robo162">ITER</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FDAT.html#robo160">DAT</a><span class="sign">&lt;</span>2<span class="sign">,</span> descriptor_length_t<span class="sign">&gt;</span><span class="sign">,</span> loop<span class="sign">:</span><span class="sign">:</span>size<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                 name_loop<span class="sign">)</span><span class="sign">;</span>
         <span class="sign">}</span>
 </pre>
 
 </div> <!-- content -->
 <div id="footer">
-<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Mon Jul 10 2017 13:18:13
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Sat Feb 03 2018 04:41:59
 </p>
 </div> <!-- footer -->
 </body>

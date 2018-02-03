@@ -34,40 +34,40 @@
             <span class="keyword">using</span> <span class="keyword">namespace</span> iso138181<span class="sign">:</span><span class="sign">:</span><a href="./specifications_hpptssi3A3Aiso1381812Fdescriptor.html#robo95">descriptor</a><span class="sign">;</span>
             <span class="keyword">namespace</span> <span class="sign">{</span>
                 <span class="keyword">using</span> descriptor_length_t <span class="sign">=</span>
-                    <a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">;</span>
+                    <a href="./specifications_hpptssi2FR8.html#robo175">R8</a><span class="sign">&lt;</span>1<span class="sign">&gt;</span><span class="sign">;</span>
             <span class="sign">}</span>
             <span class="keyword">const</span> uint_fast8_t tag <span class="sign">=</span> 0x4a<span class="sign">;</span>
-            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>2<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo170">R16</a><span class="sign">&lt;</span>2<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                 transport_stream_id<span class="sign">)</span><span class="sign">;</span>
-            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo170">R16</a><span class="sign">&lt;</span>4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                 original_network_id<span class="sign">)</span><span class="sign">;</span>
-            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>6<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo170">R16</a><span class="sign">&lt;</span>6<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                 service_id<span class="sign">)</span><span class="sign">;</span>
-            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>8<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR8.html#robo175">R8</a><span class="sign">&lt;</span>8<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                 linkage_type<span class="sign">)</span><span class="sign">;</span>
 
-            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FDAT.html#robo156">DAT</a><span class="sign">&lt;</span>9<span class="sign">,</span> descriptor_length_t<span class="sign">,</span> <span class="sign">-</span>7<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+            <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FDAT.html#robo160">DAT</a><span class="sign">&lt;</span>9<span class="sign">,</span> descriptor_length_t<span class="sign">,</span> <span class="sign">-</span>7<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                 info<span class="sign">)</span><span class="sign">;</span>
             <span class="sign">/</span><span class="sign">/</span> <span class="keyword">if</span> <span class="sign">(</span>linkage_type <span class="sign">=</span><span class="sign">=</span> 0x08<span class="sign">)</span> info <span class="sign">=</span> <span class="sign">{</span>
             <span class="keyword">namespace</span> mobile_hand_over_info <span class="sign">{</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo159">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">,</span> 0xf0<span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FMS.html#robo164">MS</a><span class="sign">&lt;</span><a href="./specifications_hpptssi2FR8.html#robo175">R8</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">,</span> 0xf0<span class="sign">,</span> 4<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     hand_over_type<span class="sign">)</span><span class="sign">;</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>0<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo169">R1</a><span class="sign">&lt;</span>0<span class="sign">,</span> 0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     origin_type<span class="sign">)</span><span class="sign">;</span>
                 <span class="sign">/</span><span class="sign">/</span> TODO<span class="sign">:</span> complete subnamespace
             <span class="sign">}</span>
             <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span> else <span class="keyword">if</span> <span class="sign">(</span>linkage_type <span class="sign">=</span><span class="sign">=</span> 0x0D <span class="sign">)</span> info <span class="sign">=</span> <span class="sign">{</span>
             <span class="keyword">namespace</span> event_linkage_info <span class="sign">{</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo165">R16</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR16.html#robo170">R16</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     target_event_id<span class="sign">)</span><span class="sign">;</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>2<span class="sign">,</span> 7<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo169">R1</a><span class="sign">&lt;</span>2<span class="sign">,</span> 7<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     target_listed<span class="sign">)</span><span class="sign">;</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo164">R1</a><span class="sign">&lt;</span>2<span class="sign">,</span> 6<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR1.html#robo169">R1</a><span class="sign">&lt;</span>2<span class="sign">,</span> 6<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     event_simulcast<span class="sign">)</span><span class="sign">;</span>
             <span class="sign">}</span>
             <span class="sign">/</span><span class="sign">/</span> <span class="sign">}</span> else <span class="keyword">if</span> <span class="sign">(</span>linkage_type <span class="sign">&gt;</span><span class="sign">=</span> 0x0E <span class="sign">&amp;</span><span class="sign">&amp;</span> linkage_type <span class="sign">&lt;</span><span class="sign">=</span> 0x1F<span class="sign">)</span> info <span class="sign">=</span> <span class="sign">{</span>
             <span class="keyword">namespace</span> extended_event_linkage_info <span class="sign">{</span>
-                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo175">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR8.html#robo170">R8</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
+                <a href="./specifications_hpptssi2FTSSI5FMTD.html#robo180">TSSI_MTD</a><span class="sign">(</span><span class="sign">(</span><a href="./specifications_hpptssi2FR8.html#robo175">R8</a><span class="sign">&lt;</span>0<span class="sign">&gt;</span><span class="sign">)</span><span class="sign">,</span>
                     loop_length<span class="sign">)</span><span class="sign">;</span>
                 <span class="sign">/</span><span class="sign">/</span> TODO<span class="sign">:</span> complete subnamespace
             <span class="sign">}</span><span class="sign">;</span>
@@ -77,7 +77,7 @@
 
 </div> <!-- content -->
 <div id="footer">
-<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Mon Jul 10 2017 13:18:13
+<p>Generated from ./include/specifications.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Sat Feb 03 2018 04:41:59
 </p>
 </div> <!-- footer -->
 </body>
