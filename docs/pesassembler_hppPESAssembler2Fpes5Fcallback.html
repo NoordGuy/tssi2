@@ -15,25 +15,23 @@
 <a name="robo_top_of_doc"></a>
 </div> <!-- logo -->
 <div id="navigation">
-<a class="menuitem" href="./pesassembler_hpptssi2FPESAssembler.html#robo160">PESAssembler</a><a class="menuitem" href="./robo_methods.html#robo_top_of_doc">Methods</a></div> <!-- navigation -->
+<a class="menuitem" href="./pesassembler_hpptssi2FPESAssembler.html#robo165">PESAssembler</a><a class="menuitem" href="./robo_methods.html#robo_top_of_doc">Methods</a></div> <!-- navigation -->
 <div id="content">
 <hr />
 <a name="PESAssembler2fpes5fcallback"></a>
-<a name="robo127"></a><h2>PESAssembler/pes_callback [ Methods ]</h2>
+<a name="robo131"></a><h2>PESAssembler/pes_callback [ Methods ]</h2>
 
 <p class="item_name">NAME</p>
 <pre>    <strong>pes_callback</strong> -- Establish a callback for Packetized Elementary Stream (PES) packets 
-    on a certain PID. Multiple callpacks per PID are possible. Internally an 
-    std::weak_ptr is stored - the <a href="./tsparser_hpptssi2FTSParser.html#robo174">TSParser</a> does not keep the <a href="./processnode_hpptssi2FProcessNode.html#robo161">ProcessNode</a> alive. You can 
-    call this function directly with <a href="./processnode_hpptssi2Fcallback5Ft.html#robo154">callback_t</a> as 2nd parameter type, too.
+    on a certain PID. Multiple callpacks per PID are possible.
 </pre>
 <p class="item_name">SYNOPSIS</p>
-<pre class="source">    <span class="keyword">void</span> <strong>pes_callback</strong><span class="sign">(</span><span class="keyword">const</span> std<span class="sign">:</span><span class="sign">:</span>vector<span class="sign">&lt;</span>uint_fast16_t<span class="sign">&gt;</span><span class="sign">&amp;</span> pids<span class="sign">,</span> <span class="keyword">const</span> std<span class="sign">:</span><span class="sign">:</span>shared_ptr<span class="sign">&lt;</span><a href="./processnode_hpptssi2FProcessNode.html#robo161">ProcessNode</a><span class="sign">&gt;</span><span class="sign">&amp;</span> callback<span class="sign">)</span>
+<pre class="source">    <span class="keyword">void</span> <strong>pes_callback</strong><span class="sign">(</span>uint_fast16_t pid<span class="sign">,</span> <a href="./processnode_hpptssi2Fcallback5Ft.html#robo158">callback_t</a><span class="sign">&amp;</span><span class="sign">&amp;</span> cb<span class="sign">)</span> 
 </pre>
 
 </div> <!-- content -->
 <div id="footer">
-<p>Generated from ./include/pesassembler.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Mon Jul 10 2017 13:18:12
+<p>Generated from ./include/pesassembler.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Sat Feb 03 2018 04:41:58
 </p>
 </div> <!-- footer -->
 </body>

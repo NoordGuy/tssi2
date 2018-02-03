@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
 <link rel="stylesheet" href="./robodoc.css" type="text/css" />
-<title>./include/psiheap.hpp</title>
-<!-- Source: ./include/psiheap.hpp -->
+<title>./include/mpegaudio.hpp</title>
+<!-- Source: ./include/mpegaudio.hpp -->
 <!-- Generated with ROBODoc Version 4.99.36 (Mar 13 2008) -->
 </head>
 <body>
@@ -18,32 +18,30 @@
 <a class="menuitem" href="./tsparser_hpp2Ftssi.html#robo0">tssi</a><a class="menuitem" href="./robo_classes.html#robo_top_of_doc">Classes</a></div> <!-- navigation -->
 <div id="content">
 <hr />
-<a name="tssi2fPSIHeap"></a>
-<a name="robo167"></a><h2>tssi/PSIHeap [ Classes ]</h2>
+<a name="tssi2fMPEGAudio"></a>
+<a name="robo163"></a><h2>tssi/MPEGAudio [ Classes ]</h2>
 
 <p class="item_name">NAME</p>
-<pre>    <strong>PSIHeap</strong> -- Compiles transport packets to PSI sections, stores them and makes 
-    them available. 
-</pre>
-<p class="item_name">NOTES</p>
-<pre>    Only current versions are stored. Old or future sections are discarded.
-    Feed this class with transport packets or hand this job over to <a href="./tsparser_hpptssi2FTSParser.html#robo179">TSParser</a>.
+<pre>    <strong>MPEGAudio</strong> -- Parses MPEG Version 1 (ISO 11172-3), 2 (13818-3), and 2.5 
+    Packetized elementary stream (PES) data and provides single frames via
+    <a href="./processnode_hpptssi2Fcallback5Ft.html#robo158">callback_t</a>. This class must be instantiated for every single stream.
 </pre>
 <p class="item_name">DERIVED FROM</p>
 <pre>    <a href="./processnode_hpptssi2FProcessNode.html#robo166">ProcessNode</a>
 </pre>
 <p class="item_name">DATA SCOPE</p>
-<pre>    iso138181::<a href="./specifications_hpptssi3A3Aiso1381812Ftransport5Fpacket.html#robo122">transport_packet</a>
+<pre>    iso138181::<a href="./specifications_hpptssi3A3Aiso1381812FPES5Fpacket.html#robo109">PES_packet</a>
+    iso138181::<a href="./specifications_hpptssi3A3Aiso1381812FPES5Fpacket5Fmedia.html#robo111">PES_packet_media</a>
 </pre>
 <p class="item_name">METHODS</p>
-<pre>    <a href="./psiheap_hppPSIHeap2Fpsi5Fheap.html#robo141">psi_heap</a>
-    <a href="./psiheap_hppPSIHeap2Fheap5Freset.html#robo138">heap_reset</a>
-    <a href="./psiheap_hppPSIHeap2Fpsi5Fcallback.html#robo140">psi_callback</a>
+<pre>    <a href="./mpegaudio_hppMPEGAudio2Faudio5Freset.html#robo130">audio_reset</a>
+    <a href="./mpegaudio_hppMPEGAudio2Faudio5Fcallback.html#robo128">audio_callback</a>
+    <a href="./mpegaudio_hppMPEGAudio2Faudio5Fpts.html#robo129">audio_pts</a>
 </pre>
 
 </div> <!-- content -->
 <div id="footer">
-<p>Generated from ./include/psiheap.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Sat Feb 03 2018 04:41:58
+<p>Generated from ./include/mpegaudio.hpp with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.36 on Sat Feb 03 2018 04:41:58
 </p>
 </div> <!-- footer -->
 </body>
