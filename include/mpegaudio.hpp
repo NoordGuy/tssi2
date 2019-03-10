@@ -22,6 +22,7 @@
 
 #include "processnode.hpp"
 #include "specifications.hpp"
+#include <algorithm>
 
 namespace {
 
@@ -169,7 +170,7 @@ private:
 		}
 		else {
 			if (open_bytes > 0) {
-				auto copy_slice = es_data.subspan(0, std::min(open_bytes, in_len));
+				auto copy_slice = es_data.subspan(0, std::min<size_t>(open_bytes, in_len));
 				std::copy(copy_slice.begin(), copy_slice.end(), std::back_inserter(audio_buffer));
 				open_bytes -= copy_slice.size();
 				i += copy_slice.size();
