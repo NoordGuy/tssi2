@@ -189,7 +189,7 @@ public:
 
 	operator Span() const noexcept { return data_; }
 	Span data() const noexcept { return data_; }
-	reference operator[](index_type idx) const noexcept { return _data[idx]; }
+	reference operator[](index_type idx) const noexcept { return data_[idx]; }
 
 	constexpr reference at(index_type idx) const noexcept { return this->operator[](idx); }
 	constexpr reference operator()(index_type idx) const noexcept { return this->operator[](idx); }
@@ -759,7 +759,7 @@ public:
 	static element_type at(gsl::span<const char> data, size_t index = 0)
 	{
 		// is data aligned?
-		bool same = is_same<span_reader, void>::value;
+		bool same = std::is_same<span_reader, void>::value;
 		Expects(!same);
 
 		data = span_reader::at(data, index);
