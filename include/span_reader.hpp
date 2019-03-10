@@ -818,7 +818,7 @@ public:
 		case 0x13: return std::make_pair(false, u8"[Simplified Chinese Characters NA]"); // TODO
 		case 0x14: return std::make_pair(false, u8"[Traditional Chinese NA]"); // TODO
 		case 0x15: // utf8
-			return std::make_pair(true, string(data.data(), data.size()));
+			return std::make_pair(true, std::string(data.data(), data.size()));
 			// 0x16 to 0x1e reserved
 		case 0x1f: {			
 			// company defined encodings
